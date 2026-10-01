@@ -1,91 +1,626 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Santosh Bastola | IT Specialist Portfolio</title>
+  <title>Santosh Bastola | IT Specialist & Systems Support</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glow-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+    }
+    .light .glow-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.12) 0%, rgba(248, 250, 252, 0) 70%);
+    }
 
-  <!-- Header -->
-  <header class="sticky top-0 bg-white/90 backdrop-blur border-b border-slate-200 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-      <span class="font-bold text-xl tracking-tight text-slate-900">Santosh Bastola</span>
-      <nav class="space-x-6 text-sm font-medium">
-        <a href="#about" class="hover:text-blue-600 transition">About</a>
-        <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
-        <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+    /* Print styling rules */
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #printable-resume, #printable-resume * {
+        visibility: visible !important;
+      }
+      #printable-resume {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-700 dark:bg-[#0b0f19] dark:text-slate-300 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <!-- Glow Background Effect -->
+  <div class="fixed inset-0 glow-bg pointer-events-none z-0"></div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-[#0b0f19]/80 border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <button onclick="navigateTo('home')" class="text-lg font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2 cursor-pointer">
+        <span class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/30">SB</span>
+        Santosh Bastola
+      </button>
+      
+      <!-- Nav Menu items -->
+      <nav class="flex items-center gap-2 sm:gap-6 text-sm font-medium">
+        <button id="nav-home" onclick="navigateTo('home')" class="nav-link px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 font-semibold transition-colors">Home</button>
+        <button id="nav-experience" onclick="navigateTo('experience')" class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</button>
+        <button id="nav-skills" onclick="navigateTo('skills')" class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</button>
+        <button id="nav-contact" onclick="navigateTo('contact')" class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</button>
+        
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-yellow-400 hover:scale-105 transition-all" aria-label="Toggle theme">
+          <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+          </svg>
+          <svg id="moonIcon" class="w-4 h-4 block dark:hidden text-slate-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+
+        <button onclick="openResumeModal()" class="px-4 py-1.5 rounded-full bg-blue-600 text-white font-semibold text-xs tracking-wide shadow-md shadow-blue-600/30 hover:bg-blue-500 transition-all uppercase cursor-pointer">
+          RESUME
+        </button>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-6 py-12 space-y-20">
-    <!-- Hero -->
-    <section class="flex flex-col-reverse md:flex-row items-center gap-10">
-      <div class="space-y-4 md:w-2/3">
-        <span class="text-blue-600 font-semibold tracking-wide text-sm uppercase">IT Operations & Systems</span>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900">Santosh Bastola</h1>
-        <p class="text-lg text-slate-600">
-          Assistant IT Officer based in Biratnagar, Nepal. Focused on network stability, enterprise hardware maintenance, and IT infrastructure support.
-        </p>
-        <div class="pt-2 flex gap-4">
-          <a href="#contact" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">Contact Me</a>
-          <a href="mailto:santoshbastola99@gmail.com" class="px-5 py-2.5 border border-slate-300 rounded-lg font-medium hover:bg-slate-100 transition">Email Direct</a>
-        </div>
-      </div>
-      <div class="md:w-1/3 flex justify-center">
-        <div class="w-44 h-44 rounded-full border-4 border-white shadow-xl overflow-hidden bg-slate-200">
-          <!-- Place your profile photo here -->
-          <img src="profile.jpg" alt="Santosh Bastola" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/200'">
-        </div>
-      </div>
-    </section>
+  <!-- Dynamic Content Container -->
+  <main class="relative z-10 max-w-6xl mx-auto px-6 py-12 flex-grow flex flex-col justify-center">
 
-    <!-- Experience -->
-    <section id="experience" class="space-y-6">
-      <h2 class="text-2xl font-bold border-b pb-2 border-slate-200">Work Experience</h2>
-      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
-        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-          <h3 class="text-lg font-semibold text-slate-900">Assistant IT Officer</h3>
-          <span class="text-sm font-medium text-blue-600">Dec 2023 – Present</span>
+    <!-- PAGE 1: HOME (Dashboard: Cover / Hero + Technical Skills + Contact) -->
+    <div id="page-home" class="page-content space-y-24">
+      
+      <!-- Hero / Cover -->
+      <section class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 pt-4">
+        <div class="space-y-6 md:w-3/5 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-200/70 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700/60 text-xs text-blue-600 dark:text-blue-400 font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Assistant IT Officer
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 dark:from-blue-400 dark:via-indigo-300 dark:to-sky-400">Santosh Bastola</span>
+          </h1>
+          <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
+            Focused on system maintenance, CCTV and surveillance architecture, technical troubleshooting, and enterprise IT infrastructure support.
+          </p>
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+            <button onclick="navigateTo('contact')" class="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg shadow-blue-600/25 hover:bg-blue-500 transition-all transform hover:-translate-y-0.5">
+              Get in Touch
+            </button>
+            <button onclick="openResumeModal()" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all cursor-pointer">
+              View Resume
+            </button>
+          </div>
         </div>
-        <p class="text-sm text-slate-500 font-medium">Birat Medical College Teaching Hospital — Department of IT</p>
-        <ul class="list-disc list-inside text-sm text-slate-600 space-y-1.5 pt-2">
-          <li>Deploy updates, system patches, and perform continuous hardware/software maintenance.</li>
-          <li>Provide first-tier support to clinical and administrative departments, reducing downtime.</li>
-          <li>Assist in maintaining enterprise IT security measures and updating internal system configuration logs.</li>
-        </ul>
-      </div>
-    </section>
 
-    <!-- Skills -->
-    <section id="skills" class="space-y-6">
-      <h2 class="text-2xl font-bold border-b pb-2 border-slate-200">Core Technical Skills</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-white p-4 rounded-lg border border-slate-200 text-center font-medium shadow-sm">Hardware & Troubleshooting</div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 text-center font-medium shadow-sm">CCTV Installation</div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 text-center font-medium shadow-sm">System Administration</div>
-        <div class="bg-white p-4 rounded-lg border border-slate-200 text-center font-medium shadow-sm">Microsoft Office Suite</div>
-      </div>
-    </section>
+        <div class="md:w-2/5 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+            <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-900 shadow-xl">
+              <img src="profile.jpg" alt="Santosh Bastola" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/300'">
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Contact -->
-    <section id="contact" class="space-y-6">
-      <h2 class="text-2xl font-bold border-b pb-2 border-slate-200">Get In Touch</h2>
-      <div class="bg-slate-900 text-slate-100 p-8 rounded-2xl flex flex-col md:flex-row justify-between gap-6">
+      <!-- Core Technical Skills -->
+      <section class="space-y-8">
         <div>
-          <h3 class="text-xl font-bold">Let's discuss opportunities or support.</h3>
-          <p class="text-slate-400 text-sm mt-1">Available for full-time roles, consultations, and technical deployments.</p>
+          <span class="text-blue-600 dark:text-blue-400 font-semibold text-xs tracking-wider uppercase">Capabilities</span>
+          <h2 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">Core Technical Skills</h2>
         </div>
-        <div class="space-y-1 text-sm">
-          <p><span class="text-slate-400">Email:</span> santoshbastola99@gmail.com</p>
-          <p><span class="text-slate-400">Phone:</span> (+977) 9862123249</p>
-          <p><span class="text-slate-400">Location:</span> Biratnagar, Nepal</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#9881;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Hardware & Diagnostics</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Computer assembly, component troubleshooting, routine maintenance, and system performance checks.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128249;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Surveillance & CCTV Setup</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">CCTV camera installation, cabling, network video recording (NVR/DVR), and live feed configuration.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128187;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">System Administration</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Workstation deployment, OS updates, system patches, and departmental software support.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 flex items-center justify-center text-sky-600 dark:text-sky-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128274;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">IT Security & Procedures</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Assisting with institutional IT security procedures, network hygiene, and system baseline controls.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128203;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Documentation & Office Tools</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Proficient with Microsoft Office, creating troubleshooting guides, and maintaining system configuration logs.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128101;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">First-Line User Support</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Providing prompt technical support to internal departments, troubleshooting queries, and resolving tickets.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section>
+        <div class="rounded-3xl bg-slate-900 dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950 border border-slate-800 p-8 md:p-12 shadow-2xl text-white">
+          <div class="max-w-2xl space-y-4">
+            <span class="text-blue-400 font-semibold text-xs tracking-wider uppercase">Contact Me</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let's connect.</h2>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Reach out directly for IT inquiries, technical assistance, or opportunities.
+            </p>
+          </div>
+
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-800">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#9993;</div>
+              <div>
+                <div class="text-xs text-slate-500">Email</div>
+                <a href="mailto:santoshbastola99@gmail.com" class="text-sm font-medium text-slate-200 hover:text-blue-400 transition break-all">santoshbastola99@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#9742;</div>
+              <div>
+                <div class="text-xs text-slate-500">Phone</div>
+                <a href="tel:+9779862123249" class="text-sm font-medium text-slate-200 hover:text-blue-400 transition">(+977) 9862123249</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#128205;</div>
+              <div>
+                <div class="text-xs text-slate-500">Location</div>
+                <span class="text-sm font-medium text-slate-200">Biratnagar, Morang, Nepal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- PAGE 2: WORK EXPERIENCE (Shown when "Experience" tab is clicked) -->
+    <div id="page-experience" class="page-content hidden">
+      <section class="space-y-8 max-w-4xl mx-auto">
+        <div>
+          <span class="text-blue-600 dark:text-blue-400 font-semibold text-xs tracking-wider uppercase">Career Pathway</span>
+          <h2 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">Work Experience</h2>
+        </div>
+
+        <div class="relative pl-6 md:pl-8 border-l border-slate-300 dark:border-slate-800 space-y-10">
+          <div class="relative">
+            <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-50 dark:border-[#0b0f19]"></div>
+            <div class="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 md:p-8 backdrop-blur shadow-sm hover:border-slate-400 dark:hover:border-slate-700 transition duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Assistant IT Officer</h3>
+                <span class="text-xs px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 font-medium w-fit">
+                  Dec 2023 – Current
+                </span>
+              </div>
+              <p class="text-slate-600 dark:text-slate-400 font-medium text-sm mb-4">Birat Medical College Teaching Hospital &bull; Budiganga, Nepal</p>
+              <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">&#x25C6;</span>
+                  <span>Assisting with implementing and maintaining IT security policies and procedures.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">&#x25C6;</span>
+                  <span>Performing routine maintenance tasks on hardware and software such as installing updates and patches also ensuring systems are running optimally.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">&#x25C6;</span>
+                  <span>Providing first-line technical support to users, answering questions and escalating issues when necessary.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">&#x25C6;</span>
+                  <span>Maintaining up-to-date IT documents including procedures troubleshooting guides and system configurations.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">&#x25C6;</span>
+                  <span>Assisting with IT related works with system upgrades and implementations.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">&#x25C6;</span>
+                  <span>Provide updated software system to all the department and staying up to date with latest IT technologies.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PAGE 3: CORE TECHNICAL SKILLS (Shown when "Skills" tab is clicked) -->
+    <div id="page-skills" class="page-content hidden">
+      <section class="space-y-8">
+        <div>
+          <span class="text-blue-600 dark:text-blue-400 font-semibold text-xs tracking-wider uppercase">Capabilities</span>
+          <h2 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight mt-1">Core Technical Skills</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#9881;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Hardware & Diagnostics</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Computer assembly, component troubleshooting, routine maintenance, and system performance checks.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128249;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Surveillance & CCTV Setup</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">CCTV camera installation, cabling, network video recording (NVR/DVR), and live feed configuration.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128187;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">System Administration</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Workstation deployment, OS updates, system patches, and departmental software support.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 flex items-center justify-center text-sky-600 dark:text-sky-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128274;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">IT Security & Procedures</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Assisting with institutional IT security procedures, network hygiene, and system baseline controls.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128203;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Documentation & Office Tools</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Proficient with Microsoft Office, creating troubleshooting guides, and maintaining system configuration logs.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 transition duration-300 group">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 mb-4 group-hover:scale-110 transition duration-300 text-lg">
+              &#128101;
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">First-Line User Support</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">Providing prompt technical support to internal departments, troubleshooting queries, and resolving tickets.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PAGE 4: CONTACT (Shown when "Contact" tab is clicked) -->
+    <div id="page-contact" class="page-content hidden">
+      <section class="max-w-4xl mx-auto w-full">
+        <div class="rounded-3xl bg-slate-900 dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950 border border-slate-800 p-8 md:p-12 shadow-2xl text-white">
+          <div class="max-w-2xl space-y-4">
+            <span class="text-blue-400 font-semibold text-xs tracking-wider uppercase">Contact Me</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let's connect.</h2>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Reach out directly for IT inquiries, technical assistance, or opportunities.
+            </p>
+          </div>
+
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-800">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#9993;</div>
+              <div>
+                <div class="text-xs text-slate-500">Email</div>
+                <a href="mailto:santoshbastola99@gmail.com" class="text-sm font-medium text-slate-200 hover:text-blue-400 transition break-all">santoshbastola99@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#9742;</div>
+              <div>
+                <div class="text-xs text-slate-500">Phone</div>
+                <a href="tel:+9779862123249" class="text-sm font-medium text-slate-200 hover:text-blue-400 transition">(+977) 9862123249</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#128205;</div>
+              <div>
+                <div class="text-xs text-slate-500">Location</div>
+                <span class="text-sm font-medium text-slate-200">Biratnagar, Morang, Nepal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Santosh Bastola. Built for GitHub Pages.</p>
+  </footer>
+
+  <!-- RESUME MODAL VIEWER -->
+  <div id="resumeModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm overflow-y-auto p-4 sm:p-6 flex justify-center items-start">
+    <div class="relative w-full max-w-4xl bg-white text-slate-900 rounded-2xl shadow-2xl overflow-hidden my-6 border border-slate-300">
+      
+      <!-- Top Action Bar -->
+      <div class="sticky top-0 z-20 bg-slate-950 text-white px-6 py-4 flex justify-between items-center border-b border-slate-800 no-print">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <span class="font-bold text-sm tracking-wide">Curriculum Vitae</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="window.print()" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold tracking-wide flex items-center gap-2 transition shadow-md shadow-blue-600/30 cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            Print / Save as PDF
+          </button>
+          <button onclick="closeResumeModal()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition cursor-pointer">
+            Close &#x2715;
+          </button>
         </div>
       </div>
-    </section>
-  </main>
+
+      <!-- Printable Resume Content -->
+      <div id="printable-resume" class="bg-white text-slate-800 font-sans p-8 sm:p-12">
+        <div class="flex flex-col sm:flex-row justify-between items-start gap-6 border-b-2 border-slate-100 pb-8">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded">IT & Surveillance Specialist</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">Santosh Bastola</h1>
+            <p class="text-sm font-medium text-slate-500 mt-1">Ekta Marga, Budiganga-01, Morang, Nepal, 56613 Biratnagar</p>
+          </div>
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md flex-shrink-0">
+            <img src="profile.jpg" alt="Santosh Bastola" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pt-8">
+          <div class="md:col-span-5 space-y-6 md:border-r md:border-slate-100 md:pr-6">
+            <div class="space-y-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Personal Info</h3>
+              <div class="space-y-2 text-xs text-slate-600">
+                <div class="flex justify-between py-1 border-b border-slate-50">
+                  <span class="font-medium text-slate-400">Nationality:</span>
+                  <span class="font-semibold text-slate-800">Nepalese</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slate-50">
+                  <span class="font-medium text-slate-400">Date of Birth:</span>
+                  <span class="font-semibold text-slate-800">19/02/1998</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slate-50">
+                  <span class="font-medium text-slate-400">Phone:</span>
+                  <span class="font-semibold text-slate-800">(+977) 9862123249</span>
+                </div>
+                <div class="py-1">
+                  <span class="font-medium text-slate-400 block mb-0.5">Email:</span>
+                  <span class="font-semibold text-slate-800 break-all">santoshbastola99@gmail.com</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Skills & Tooling</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">Microsoft Office</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">CCTV Installation</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Hardware Troubleshooting</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">IT Security Policies</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Technical Documentation</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">First-Line Support</span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Language Proficiency</h3>
+              <div class="space-y-2 text-xs">
+                <div>
+                  <div class="flex justify-between font-semibold text-slate-800">
+                    <span>Nepali</span>
+                    <span class="text-slate-400 font-normal">Mother tongue</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between font-semibold text-slate-800">
+                    <span>English</span>
+                    <span class="text-slate-400 font-normal">Proficient (C1/C2)</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-1.5 mt-2 font-mono text-[11px] bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-slate-600">
+                    <div>Listening: <strong class="text-slate-800">C2</strong></div>
+                    <div>Reading: <strong class="text-slate-800">C2</strong></div>
+                    <div>Writing: <strong class="text-slate-800">C1</strong></div>
+                    <div>Spoken Prod: <strong class="text-slate-800">C2</strong></div>
+                    <div class="col-span-2">Spoken Inter: <strong class="text-slate-800">B1</strong></div>
+                  </div>
+                  <span class="text-[10px] text-slate-400 block mt-1">Levels: Basic (A1/A2), Independent (B1/B2), Proficient (C1/C2)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-7 space-y-8">
+            <div class="space-y-4">
+              <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+                <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">Work Experience</h3>
+              </div>
+              <div class="relative pl-4 border-l-2 border-blue-500 space-y-2">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                  <h4 class="text-base font-bold text-slate-900">Assistant IT Officer</h4>
+                  <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded w-fit">26/12/2023 – Current</span>
+                </div>
+                <div class="text-xs font-semibold text-slate-700">
+                  Birat Medical College Teaching Hospital
+                </div>
+                <p class="text-[11px] text-slate-500">
+                  Department of Information and Technology &bull; Budiganga, Nepal<br>
+                  Website: bmcteachinghospital.com | info@bmcteachinghospital.com
+                </p>
+                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1.5 pt-2">
+                  <li>Assisting with implementing and maintaining IT security policies and procedures.</li>
+                  <li>Performing routine maintenance tasks on hardware and software such as installing updates and patches also ensuring systems are running optimally.</li>
+                  <li>Providing first-line technical support to users, answering questions and escalating issues when necessary.</li>
+                  <li>Maintaining up-to-date IT documents including procedures, troubleshooting guides and system configurations.</li>
+                  <li>Assisting with IT related works with system upgrades and implementations.</li>
+                  <li>Provide updated software system to all the department and staying up to date with latest IT technologies.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+                <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">Education and Training</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="border-l-2 border-slate-200 pl-4 space-y-1">
+                  <div class="flex justify-between items-baseline">
+                    <h4 class="text-xs font-bold text-slate-900">Tribhuvan University</h4>
+                    <span class="text-xs text-slate-500 font-medium">2018 – 2024</span>
+                  </div>
+                  <p class="text-xs text-slate-600">Mahendra Morang Adarsh Multiple Campus, Biratnagar</p>
+                  <div class="flex justify-between items-center text-[11px] text-slate-500 pt-0.5">
+                    <span>https://mmamc.tu.edu.np/</span>
+                    <span class="font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">EQF Level 6</span>
+                  </div>
+                </div>
+
+                <div class="border-l-2 border-slate-200 pl-4 space-y-1">
+                  <div class="flex justify-between items-baseline">
+                    <h4 class="text-xs font-bold text-slate-900">Higher Secondary Education Board</h4>
+                    <span class="text-xs text-slate-500 font-medium">16/07/2013 – 08/06/2015</span>
+                  </div>
+                  <p class="text-xs text-slate-600">Orchid Public Higher Secondary School, Biratnagar</p>
+                  <div class="flex justify-between items-center text-[11px] text-slate-500 pt-0.5">
+                    <span>https://orchidcollege.edu.np/</span>
+                    <span class="font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">EQF Level 2</span>
+                  </div>
+                </div>
+
+                <div class="border-l-2 border-slate-200 pl-4 space-y-1">
+                  <div class="flex justify-between items-baseline">
+                    <h4 class="text-xs font-bold text-slate-900">School Leaving Certificate</h4>
+                    <span class="text-xs text-slate-500 font-medium">13/04/2000 – 28/03/2013</span>
+                  </div>
+                  <p class="text-xs text-slate-600">Arpan English School, Biratnagar, Nepal</p>
+                  <div class="flex justify-end pt-0.5">
+                    <span class="font-semibold text-blue-600 bg-blue-50 text-[11px] px-1.5 py-0.5 rounded">EQF Level 1</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // SPA Single-Page Router Navigation
+    function navigateTo(pageId) {
+      document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+
+      const targetPage = document.getElementById('page-' + pageId);
+      if (targetPage) {
+        targetPage.classList.remove('hidden');
+      }
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.className = 'nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors';
+      });
+
+      const activeLink = document.getElementById('nav-' + pageId);
+      if (activeLink) {
+        activeLink.className = 'nav-link px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 font-semibold transition-colors';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Theme toggle handling
+    const html = document.documentElement;
+
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      html.classList.remove('dark');
+    } else {
+      html.classList.add('dark');
+    }
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Resume Modal Functions
+    function openResumeModal() {
+      document.getElementById('resumeModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+      document.getElementById('resumeModal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    document.getElementById('resumeModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeResumeModal();
+      }
+    });
+  </script>
+
 </body>
 </html>
