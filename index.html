@@ -80,6 +80,21 @@
         box-shadow: none !important;
         border: none !important;
       }
+      #printable-resume > div:first-child {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+      #printable-resume > .grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+      }
+      #printable-resume > .grid > div {
+        width: 100% !important;
+        border-right: none !important;
+        padding-right: 0 !important;
+      }
       .no-print {
         display: none !important;
       }
@@ -454,8 +469,8 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pt-8">
-          <div class="md:col-span-5 space-y-6 md:border-r md:border-slate-100 md:pr-6">
+        <div class="flex flex-col gap-8 pt-8">
+          <div class="space-y-6">
             <div class="space-y-3">
               <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Personal Info</h3>
               <div class="space-y-2 text-xs text-slate-600">
@@ -478,46 +493,9 @@
               </div>
             </div>
 
-            <div class="space-y-3">
-              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Skills & Tooling</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">Microsoft Office</span>
-                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">CCTV Installation</span>
-                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Hardware Troubleshooting</span>
-                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">IT Security Policies</span>
-                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Technical Documentation</span>
-                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">First-Line Support</span>
-              </div>
-            </div>
-
-            <div class="space-y-3">
-              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Language Proficiency</h3>
-              <div class="space-y-2 text-xs">
-                <div>
-                  <div class="flex justify-between font-semibold text-slate-800">
-                    <span>Nepali</span>
-                    <span class="text-slate-400 font-normal">Mother tongue</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="flex justify-between font-semibold text-slate-800">
-                    <span>English</span>
-                    <span class="text-slate-400 font-normal">Proficient (C1/C2)</span>
-                  </div>
-                  <div class="grid grid-cols-2 gap-1.5 mt-2 font-mono text-[11px] bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-slate-600">
-                    <div>Listening: <strong class="text-slate-800">C2</strong></div>
-                    <div>Reading: <strong class="text-slate-800">C2</strong></div>
-                    <div>Writing: <strong class="text-slate-800">C1</strong></div>
-                    <div>Spoken Prod: <strong class="text-slate-800">C2</strong></div>
-                    <div class="col-span-2">Spoken Inter: <strong class="text-slate-800">B1</strong></div>
-                  </div>
-                  <span class="text-[10px] text-slate-400 block mt-1">Levels: Basic (A1/A2), Independent (B1/B2), Proficient (C1/C2)</span>
-                </div>
-              </div>
-            </div>
           </div>
 
-          <div class="md:col-span-7 space-y-8">
+          <div class="space-y-8">
             <div class="space-y-4">
               <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
                 <span class="w-2 h-2 rounded-full bg-blue-600"></span>
@@ -587,6 +565,44 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Language Proficiency</h3>
+            <div class="space-y-2 text-xs">
+              <div>
+                <div class="flex justify-between font-semibold text-slate-800">
+                  <span>Nepali</span>
+                  <span class="text-slate-400 font-normal">Mother tongue</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between font-semibold text-slate-800">
+                  <span>English</span>
+                  <span class="text-slate-400 font-normal">Proficient (C1/C2)</span>
+                </div>
+                <div class="grid grid-cols-2 gap-1.5 mt-2 font-mono text-[11px] bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-slate-600">
+                  <div>Listening: <strong class="text-slate-800">C2</strong></div>
+                  <div>Reading: <strong class="text-slate-800">C2</strong></div>
+                  <div>Writing: <strong class="text-slate-800">C1</strong></div>
+                  <div>Spoken Prod: <strong class="text-slate-800">C2</strong></div>
+                  <div class="col-span-2">Spoken Inter: <strong class="text-slate-800">B1</strong></div>
+                </div>
+                <span class="text-[10px] text-slate-400 block mt-1">Levels: Basic (A1/A2), Independent (B1/B2), Proficient (C1/C2)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Skills &amp; Tooling</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">Microsoft Office</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">CCTV Installation</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Hardware Troubleshooting</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">IT Security Policies</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Technical Documentation</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">First-Line Support</span>
             </div>
           </div>
         </div>
