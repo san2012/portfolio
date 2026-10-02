@@ -241,37 +241,59 @@
 
       <!-- Contact -->
       <section>
-        <div class="rounded-3xl bg-slate-900 dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950 border border-slate-800 p-8 md:p-12 shadow-2xl text-white">
-          <div class="max-w-2xl space-y-4">
-            <span class="text-blue-400 font-semibold text-xs tracking-wider uppercase">Contact Me</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let's connect.</h2>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Reach out directly for IT inquiries, technical assistance, or opportunities.
-            </p>
+        <div class="rounded-3xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800/80 p-8 md:p-12 shadow-xl shadow-slate-200/50 dark:shadow-2xl text-slate-900 dark:text-white relative overflow-hidden group">
+          <!-- Ambient Glow Effect -->
+          <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-blue-500/10 dark:bg-blue-600/15 blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-indigo-500/10 dark:bg-indigo-600/15 blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="max-w-2xl space-y-3">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Get In Touch
+              </div>
+              <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                Have a project or technical challenge?
+              </h2>
+              <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                Reach out directly for IT inquiries, CCTV/surveillance setup, hardware diagnostics, or professional career opportunities.
+              </p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="navigateTo('contact')" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30 transition transform hover:-translate-y-0.5 cursor-pointer flex items-center gap-2">
+                Open Contact Desk &rarr;
+              </button>
+            </div>
           </div>
 
-          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-800">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#9993;</div>
-              <div>
-                <div class="text-xs text-slate-500">Email</div>
-                <a href="mailto:santoshbastola99@gmail.com" class="text-sm font-medium text-slate-200 hover:text-blue-400 transition break-all">santoshbastola99@gmail.com</a>
+          <div class="relative z-10 mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/40 transition">
+              <div class="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-sm flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div class="min-w-0">
+                <div class="text-xs text-slate-400 font-medium">Email</div>
+                <a href="mailto:santoshbastola99@gmail.com" class="text-sm font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition break-all">santoshbastola99@gmail.com</a>
               </div>
             </div>
 
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#9742;</div>
+            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/40 transition">
+              <div class="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-sm flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
               <div>
-                <div class="text-xs text-slate-500">Phone</div>
-                <a href="tel:+9779862123249" class="text-sm font-medium text-slate-200 hover:text-blue-400 transition">(+977) 9862123249</a>
+                <div class="text-xs text-slate-400 font-medium">Phone</div>
+                <a href="tel:+9779862123249" class="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition">(+977) 9862123249</a>
               </div>
             </div>
 
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#128205;</div>
+            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/40 transition">
+              <div class="w-11 h-11 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-sm flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
               <div>
-                <div class="text-xs text-slate-500">Location</div>
-                <span class="text-sm font-medium text-slate-200">Ekata Marga, Budiganga-01, Morang, Nepal</span>
+                <div class="text-xs text-slate-400 font-medium">Location</div>
+                <span class="text-sm font-bold text-slate-900 dark:text-white">Ekata Marga, Budiganga, Nepal</span>
               </div>
             </div>
           </div>
@@ -731,44 +753,162 @@
     </div>
 
     <!-- PAGE 4: CONTACT (Shown when "Contact" tab is clicked) -->
-    <div id="page-contact" class="page-content hidden">
-      <section class="max-w-4xl mx-auto w-full">
-        <div class="rounded-3xl bg-slate-900 dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950 border border-slate-800 p-8 md:p-12 shadow-2xl text-white">
-          <div class="max-w-2xl space-y-4">
-            <span class="text-blue-400 font-semibold text-xs tracking-wider uppercase">Contact Me</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white">Let's connect.</h2>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Reach out directly for IT inquiries, technical assistance, or opportunities.
+    <div id="page-contact" class="page-content hidden space-y-10">
+      
+      <!-- Contact Header -->
+      <section class="max-w-5xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Available for New Opportunities &amp; Technical Inquiries
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Let's <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-600 dark:from-blue-400 dark:via-indigo-300 dark:to-sky-400">Connect</span>.
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
+          Have an IT infrastructure challenge, systems diagnostics requirement, surveillance project, or a professional opportunity? Reach out directly or send a message below.
+        </p>
+      </section>
+
+      <!-- Main Contact Grid -->
+      <section class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left: Direct Channels & Information (5 cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <!-- Email Card -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 hover:shadow-md transition duration-300 group">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition duration-300 flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div class="flex-grow min-w-0">
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Email Address</span>
+                <a href="mailto:santoshbastola99@gmail.com" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition break-all block mt-0.5">
+                  santoshbastola99@gmail.com
+                </a>
+                <div class="flex items-center gap-2 mt-3">
+                  <a href="mailto:santoshbastola99@gmail.com" class="px-3 py-1 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-semibold hover:bg-blue-100 dark:hover:bg-blue-500/20 transition">
+                    Send Email &rarr;
+                  </a>
+                  <button onclick="copyContact('santoshbastola99@gmail.com', 'copy-email-btn')" id="copy-email-btn" class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition cursor-pointer">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-emerald-500/40 hover:shadow-md transition duration-300 group">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition duration-300 flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div class="flex-grow min-w-0">
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Phone / Mobile</span>
+                <a href="tel:+9779862123249" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition block mt-0.5">
+                  (+977) 9862123249
+                </a>
+                <div class="flex items-center gap-2 mt-3">
+                  <a href="tel:+9779862123249" class="px-3 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition">
+                    Call Direct &rarr;
+                  </a>
+                  <button onclick="copyContact('+9779862123249', 'copy-phone-btn')" id="copy-phone-btn" class="px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition cursor-pointer">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location Card -->
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-indigo-500/40 hover:shadow-md transition duration-300 group">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition duration-300 flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Office / Base Location</span>
+                <span class="text-sm sm:text-base font-bold text-slate-900 dark:text-white block mt-0.5">
+                  Ekata Marga, Budiganga-01
+                </span>
+                <span class="text-xs text-slate-500 dark:text-slate-400 block mt-0.5">
+                  Morang, Koshi Province, Nepal
+                </span>
+                <div class="inline-flex items-center gap-1.5 mt-2.5 text-[11px] font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 px-2.5 py-0.5 rounded-md">
+                  <span>Biratnagar Metropolitan Area (NPT • UTC+5:45)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Working Hours Note -->
+          <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-600/5 via-indigo-600/5 to-cyan-500/5 dark:from-blue-600/10 dark:via-indigo-500/10 dark:to-cyan-400/10 border border-blue-200/60 dark:border-blue-500/20">
+            <div class="flex items-center gap-2.5 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Technical Support Availability
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Standard response time within 24 hours. Critical systems troubleshooting and on-site surveillance maintenance support available upon request.
             </p>
           </div>
 
-          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-800">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#9993;</div>
-              <div>
-                <div class="text-xs text-slate-500">Email</div>
-                <a href="mailto:santoshbastola99@gmail.com" class="text-sm font-medium text-slate-200 hover:text-blue-400 transition break-all">santoshbastola99@gmail.com</a>
-              </div>
+        </div>
+
+        <!-- Right: Interactive Quick Message / Inquiries Form (7 cols) -->
+        <div class="lg:col-span-7">
+          <div class="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-lg shadow-slate-200/50 dark:shadow-none space-y-6">
+            <div>
+              <span class="text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider">Quick Inquiry</span>
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Send a Message</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                Fill out the form below to dispatch an email directly to Santosh Bastola.
+              </p>
             </div>
 
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#9742;</div>
-              <div>
-                <div class="text-xs text-slate-500">Phone</div>
-                <a href="tel:+9779862123249" class="text-sm font-medium text-slate-200 hover:text-blue-400 transition">(+977) 9862123249</a>
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label for="contact-name" class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Your Name *</label>
+                  <input type="text" id="contact-name" required placeholder="e.g. John Doe" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                </div>
+                <div class="space-y-1.5">
+                  <label for="contact-email" class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Your Email *</label>
+                  <input type="email" id="contact-email" required placeholder="e.g. john@example.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                </div>
               </div>
-            </div>
 
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm">&#128205;</div>
-              <div>
-                <div class="text-xs text-slate-500">Location</div>
-                <span class="text-sm font-medium text-slate-200">Ekata Marga, Budiganga-01, Morang, Nepal</span>
+              <div class="space-y-1.5">
+                <label for="contact-subject" class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Area of Interest / Subject *</label>
+                <select id="contact-subject" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                  <option value="IT Systems Support & Maintenance">IT Systems Support &amp; Maintenance</option>
+                  <option value="Surveillance & CCTV Installation">Surveillance &amp; CCTV Installation</option>
+                  <option value="Hardware Assembly & Diagnostics">Hardware Assembly &amp; Diagnostics</option>
+                  <option value="Job / Career Opportunity">Job / Career Opportunity</option>
+                  <option value="General Technical Consultation">General Technical Consultation</option>
+                </select>
               </div>
-            </div>
+
+              <div class="space-y-1.5">
+                <label for="contact-message" class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Your Message *</label>
+                <textarea id="contact-message" required rows="4" placeholder="Describe your query, requirements, or opportunity..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"></textarea>
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+                <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 transition duration-200 transform hover:-translate-y-0.5 cursor-pointer">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                  Send Inquiry Now
+                </button>
+                <span id="formFeedback" class="text-xs text-slate-500 dark:text-slate-400 text-center sm:text-right">
+                  Dispatches direct client mailto
+                </span>
+              </div>
+            </form>
           </div>
         </div>
+
       </section>
+
     </div>
 
   </main>
@@ -1031,6 +1171,49 @@
         closeResumeModal();
       }
     });
+
+    // Contact copy to clipboard helper
+    function copyContact(text, buttonId) {
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById(buttonId);
+        if (btn) {
+          const original = btn.textContent;
+          btn.textContent = 'Copied! ✓';
+          btn.classList.add('bg-emerald-500', 'text-white');
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove('bg-emerald-500', 'text-white');
+          }, 2000);
+        }
+      }).catch(() => {
+        const btn = document.getElementById(buttonId);
+        if (btn) {
+          btn.textContent = 'Copied! ✓';
+          setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+        }
+      });
+    }
+
+    // Contact form submit handler
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value.trim();
+
+      const mailtoSubject = encodeURIComponent(`[Portfolio Inquiry] ${subject} - from ${name}`);
+      const mailtoBody = encodeURIComponent(`Hello Santosh,\n\nName: ${name}\nEmail: ${email}\nTopic: ${subject}\n\nMessage:\n${message}\n\nBest regards,\n${name}`);
+
+      const mailtoUrl = `mailto:santoshbastola99@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+      
+      const feedback = document.getElementById('formFeedback');
+      if (feedback) {
+        feedback.innerHTML = '<span class="text-emerald-500 font-semibold">Opening email client... ✓</span>';
+      }
+
+      window.location.href = mailtoUrl;
+    }
   </script>
 
 </body>
