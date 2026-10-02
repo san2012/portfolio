@@ -35,13 +35,33 @@
       body * {
         visibility: hidden !important;
       }
+      #resumeModal,
+      #resumeModal > div,
       #printable-resume, #printable-resume * {
         visibility: visible !important;
       }
-      #printable-resume {
+      #resumeModal {
+        display: block !important;
         position: absolute !important;
-        left: 0 !important;
         top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        background: white !important;
+      }
+      #resumeModal > div {
+        position: static !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+      }
+      #printable-resume {
+        position: static !important;
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
