@@ -36,7 +36,7 @@
     /* Print styling rules */
     @page {
       size: A4 portrait;
-      margin: 1in 0.5in;
+      margin: 10mm 14mm;
     }
 
     @media print {
@@ -89,24 +89,122 @@
         background: white !important;
         box-shadow: none !important;
         border: none !important;
+        color: #1e293b !important;
       }
 
-      #printable-resume>div:first-child {
+      /* Header: Name and details on left, photo on the other side (right) */
+      #cv-header {
         display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-      }
-
-      #printable-resume>.grid {
-        display: flex !important;
-        flex-direction: column !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
         gap: 1.5rem !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 8px !important;
+        border-bottom: 2px solid #e2e8f0 !important;
       }
 
-      #printable-resume>.grid>div {
+      #cv-header-photo {
+        width: 80px !important;
+        height: 80px !important;
+        min-width: 80px !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        border: 2px solid #cbd5e1 !important;
+        display: block !important;
+        flex-shrink: 0 !important;
+      }
+
+      #cv-header-photo img {
         width: 100% !important;
-        border-right: none !important;
-        padding-right: 0 !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+
+      /* Personal info bar */
+      .cv-personal-info {
+        background-color: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 8px !important;
+        padding: 6px 12px !important;
+        margin: 4px 0 10px 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .cv-personal-info .grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      /* Compact Typography and Space Maintenance */
+      #printable-resume h1 {
+        font-size: 22pt !important;
+        line-height: 1.15 !important;
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
+      }
+
+      #printable-resume p,
+      #printable-resume span,
+      #printable-resume li {
+        font-size: 9.5pt !important;
+        line-height: 1.35 !important;
+      }
+
+      #printable-resume h3 {
+        font-size: 10.5pt !important;
+        margin-bottom: 3px !important;
+      }
+
+      #printable-resume h4 {
+        font-size: 10pt !important;
+      }
+
+      .cv-lang-grid {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        padding: 4px 8px !important;
+        font-size: 8.5pt !important;
+      }
+
+      #printable-resume .space-y-6 > :not([hidden]) ~ :not([hidden]),
+      #printable-resume .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 10px !important;
+      }
+
+      #printable-resume .space-y-4 > :not([hidden]) ~ :not([hidden]),
+      #printable-resume .space-y-3 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 6px !important;
+      }
+
+      #printable-resume ul {
+        margin-top: 3px !important;
+      }
+
+      #printable-resume li {
+        margin-bottom: 2px !important;
+      }
+
+      #printable-resume > div:nth-child(2) {
+        padding-top: 0 !important;
+        gap: 0.5rem !important;
+      }
+
+      /* Avoid awkward breaks across pages */
+      #printable-resume h1,
+      #printable-resume h2,
+      #printable-resume h3,
+      #printable-resume h4 {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+
+      #printable-resume .border-l-2,
+      #printable-resume .cv-personal-info {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
 
       .no-print {
@@ -1319,55 +1417,52 @@
       </div>
 
       <!-- Printable Resume Content -->
-      <div id="printable-resume" class="bg-white text-slate-800 font-sans p-8 sm:p-12">
-        <div class="flex flex-col sm:flex-row justify-between items-start gap-6 border-b-2 border-slate-100 pb-8">
-          <div>
+      <div id="printable-resume" class="bg-white text-slate-800 font-sans p-6 sm:p-10">
+        <div id="cv-header" class="flex flex-row justify-between items-center gap-6 border-b-2 border-slate-100 pb-5">
+          <div class="flex-1">
             <span class="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded">IT &
               Surveillance Specialist</span>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">Santosh Bastola</h1>
             <p class="text-sm font-medium text-slate-500 mt-1">Ekta Marga, Budiganga-01, Morang, Nepal, 56613 Biratnagar
             </p>
           </div>
-          <div
+          <div id="cv-header-photo"
             class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md flex-shrink-0">
             <img src="profile.jpg" alt="Santosh Bastola" class="w-full h-full object-cover"
               onerror="this.src='https://via.placeholder.com/150'">
           </div>
         </div>
 
-        <div class="flex flex-col gap-8 pt-8">
-          <div class="space-y-6">
-            <div class="space-y-3">
-              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Personal Info</h3>
-              <div class="space-y-2 text-xs text-slate-600">
-                <div class="flex justify-between py-1 border-b border-slate-50">
-                  <span class="font-medium text-slate-400">Nationality:</span>
-                  <span class="font-semibold text-slate-800">Nepalese</span>
-                </div>
-                <div class="flex justify-between py-1 border-b border-slate-50">
-                  <span class="font-medium text-slate-400">Date of Birth:</span>
-                  <span class="font-semibold text-slate-800">19/02/1998</span>
-                </div>
-                <div class="flex justify-between py-1 border-b border-slate-50">
-                  <span class="font-medium text-slate-400">Phone:</span>
-                  <span class="font-semibold text-slate-800">(+977) 9862123249</span>
-                </div>
-                <div class="py-1">
-                  <span class="font-medium text-slate-400 block mb-0.5">Email:</span>
-                  <span class="font-semibold text-slate-800 break-all">santoshbastola99@gmail.com</span>
-                </div>
+        <div class="flex flex-col gap-4 pt-3">
+          <!-- Personal Info Bar -->
+          <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-3 cv-personal-info">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Nationality</span>
+                <span class="font-semibold text-slate-800">Nepalese</span>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Date of Birth</span>
+                <span class="font-semibold text-slate-800">19/02/1998</span>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Phone</span>
+                <span class="font-semibold text-slate-800">(+977) 9862123249</span>
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Email</span>
+                <span class="font-semibold text-slate-800 break-all">santoshbastola99@gmail.com</span>
               </div>
             </div>
-
           </div>
 
-          <div class="space-y-8">
-            <div class="space-y-4">
-              <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+          <div class="space-y-5">
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 border-b border-slate-100 pb-1.5">
                 <span class="w-2 h-2 rounded-full bg-blue-600"></span>
                 <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">Work Experience</h3>
               </div>
-              <div class="relative pl-4 border-l-2 border-blue-500 space-y-2">
+              <div class="relative pl-4 border-l-2 border-blue-500 space-y-1.5">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
                   <h4 class="text-base font-bold text-slate-900">Assistant IT Officer</h4>
                   <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded w-fit">26/12/2023 –
@@ -1380,7 +1475,7 @@
                   Department of Information and Technology &bull; Budiganga, Nepal<br>
                   Website: bmcteachinghospital.com | info@bmcteachinghospital.com
                 </p>
-                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1.5 pt-2">
+                <ul class="list-disc list-inside text-xs text-slate-600 space-y-1 pt-1">
                   <li>Assisting with implementing and maintaining IT security policies and procedures.</li>
                   <li>Performing routine maintenance tasks on hardware and software such as installing updates and
                     patches also ensuring systems are running optimally.</li>
@@ -1395,13 +1490,13 @@
               </div>
             </div>
 
-            <div class="space-y-4">
-              <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 border-b border-slate-100 pb-1.5">
                 <span class="w-2 h-2 rounded-full bg-blue-600"></span>
                 <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">Education and Training</h3>
               </div>
-              <div class="space-y-4">
-                <div class="border-l-2 border-slate-200 pl-4 space-y-1">
+              <div class="space-y-3">
+                <div class="border-l-2 border-slate-200 pl-4 space-y-0.5">
                   <div class="flex justify-between items-baseline">
                     <h4 class="text-xs font-bold text-slate-900">Tribhuvan University</h4>
                     <span class="text-xs text-slate-500 font-medium">2018 – 2024</span>
@@ -1413,7 +1508,7 @@
                   </div>
                 </div>
 
-                <div class="border-l-2 border-slate-200 pl-4 space-y-1">
+                <div class="border-l-2 border-slate-200 pl-4 space-y-0.5">
                   <div class="flex justify-between items-baseline">
                     <h4 class="text-xs font-bold text-slate-900">Higher Secondary Education Board</h4>
                     <span class="text-xs text-slate-500 font-medium">16/07/2013 – 08/06/2015</span>
@@ -1425,7 +1520,7 @@
                   </div>
                 </div>
 
-                <div class="border-l-2 border-slate-200 pl-4 space-y-1">
+                <div class="border-l-2 border-slate-200 pl-4 space-y-0.5">
                   <div class="flex justify-between items-baseline">
                     <h4 class="text-xs font-bold text-slate-900">School Leaving Certificate</h4>
                     <span class="text-xs text-slate-500 font-medium">13/04/2000 – 28/03/2013</span>
@@ -1440,51 +1535,53 @@
             </div>
           </div>
 
-          <div class="space-y-3">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Language Proficiency</h3>
-            <div class="space-y-2 text-xs">
-              <div>
-                <div class="flex justify-between font-semibold text-slate-800">
-                  <span>Nepali</span>
-                  <span class="text-slate-400 font-normal">Mother tongue</span>
+          <div class="space-y-4 pt-1">
+            <div class="space-y-2">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Language Proficiency</h3>
+              <div class="space-y-2 text-xs">
+                <div>
+                  <div class="flex justify-between font-semibold text-slate-800">
+                    <span>Nepali</span>
+                    <span class="text-slate-400 font-normal">Mother tongue</span>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div class="flex justify-between font-semibold text-slate-800">
-                  <span>English</span>
-                  <span class="text-slate-400 font-normal">Proficient (C1/C2)</span>
+                <div>
+                  <div class="flex justify-between font-semibold text-slate-800">
+                    <span>English</span>
+                    <span class="text-slate-400 font-normal">Proficient (C1/C2)</span>
+                  </div>
+                  <div
+                    class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 mt-1.5 font-mono text-[11px] bg-slate-50 p-2 rounded-lg border border-slate-100 text-slate-600 cv-lang-grid">
+                    <div>Listening: <strong class="text-slate-800">C2</strong></div>
+                    <div>Reading: <strong class="text-slate-800">C2</strong></div>
+                    <div>Writing: <strong class="text-slate-800">C1</strong></div>
+                    <div>Spoken Prod: <strong class="text-slate-800">C2</strong></div>
+                    <div>Spoken Inter: <strong class="text-slate-800">B1</strong></div>
+                  </div>
+                  <span class="text-[10px] text-slate-400 block mt-1">Levels: Basic (A1/A2), Independent (B1/B2),
+                    Proficient (C1/C2)</span>
                 </div>
-                <div
-                  class="grid grid-cols-2 gap-1.5 mt-2 font-mono text-[11px] bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-slate-600">
-                  <div>Listening: <strong class="text-slate-800">C2</strong></div>
-                  <div>Reading: <strong class="text-slate-800">C2</strong></div>
-                  <div>Writing: <strong class="text-slate-800">C1</strong></div>
-                  <div>Spoken Prod: <strong class="text-slate-800">C2</strong></div>
-                  <div class="col-span-2">Spoken Inter: <strong class="text-slate-800">B1</strong></div>
-                </div>
-                <span class="text-[10px] text-slate-400 block mt-1">Levels: Basic (A1/A2), Independent (B1/B2),
-                  Proficient (C1/C2)</span>
               </div>
             </div>
-          </div>
 
-          <div class="space-y-3">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Skills &amp; Tooling</h3>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">Microsoft
-                Office</span>
-              <span
-                class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">CCTV
-                Installation</span>
-              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Hardware
-                Troubleshooting</span>
-              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">IT Security
-                Policies</span>
-              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Technical
-                Documentation</span>
-              <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">First-Line
-                Support</span>
+            <div class="space-y-2">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Skills &amp; Tooling</h3>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">Microsoft
+                  Office</span>
+                <span
+                  class="px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-50 text-blue-700 border border-blue-100">CCTV
+                  Installation</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Hardware
+                  Troubleshooting</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">IT Security
+                  Policies</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">Technical
+                  Documentation</span>
+                <span class="px-2.5 py-1 text-xs font-medium rounded-lg bg-slate-100 text-slate-700">First-Line
+                  Support</span>
+              </div>
             </div>
           </div>
         </div>
