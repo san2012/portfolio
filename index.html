@@ -115,11 +115,12 @@
       </button>
       
       <!-- Nav Menu items -->
-      <nav class="flex items-center gap-2 sm:gap-6 text-sm font-medium">
-        <button id="nav-home" onclick="navigateTo('home')" class="nav-link px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 font-semibold transition-colors">Home</button>
-        <button id="nav-experience" onclick="navigateTo('experience')" class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</button>
-        <button id="nav-skills" onclick="navigateTo('skills')" class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</button>
-        <button id="nav-contact" onclick="navigateTo('contact')" class="nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</button>
+      <nav class="flex items-center gap-1.5 sm:gap-4 md:gap-6 text-xs sm:text-sm font-medium">
+        <button id="nav-home" onclick="navigateTo('home')" class="nav-link px-2.5 sm:px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 font-semibold transition-colors">Home</button>
+        <button id="nav-experience" onclick="navigateTo('experience')" class="nav-link px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</button>
+        <button id="nav-qualification" onclick="navigateTo('qualification')" class="nav-link px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Qualification</button>
+        <button id="nav-skills" onclick="navigateTo('skills')" class="nav-link px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</button>
+        <button id="nav-contact" onclick="navigateTo('contact')" class="nav-link px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</button>
         
         <!-- Theme Toggle Button -->
         <button id="themeToggle" onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-yellow-400 hover:scale-105 transition-all" aria-label="Toggle theme">
@@ -158,10 +159,13 @@
             Focused on system maintenance, CCTV and surveillance architecture, technical troubleshooting, and enterprise IT infrastructure support.
           </p>
           <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-            <button onclick="navigateTo('contact')" class="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg shadow-blue-600/25 hover:bg-blue-500 transition-all transform hover:-translate-y-0.5">
+            <button onclick="navigateTo('contact')" class="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg shadow-blue-600/25 hover:bg-blue-500 transition-all transform hover:-translate-y-0.5 cursor-pointer">
               Get in Touch
             </button>
-            <button onclick="openResumeModal()" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all cursor-pointer">
+            <button onclick="navigateTo('qualification')" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 shadow-sm transition-all cursor-pointer">
+              Qualifications
+            </button>
+            <button onclick="openResumeModal()" class="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white shadow-sm transition-all cursor-pointer">
               View Resume
             </button>
           </div>
@@ -323,6 +327,345 @@
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PAGE: QUALIFICATION / EDUCATION PROFILE (Shown when "Qualification" tab is clicked) -->
+    <div id="page-qualification" class="page-content hidden space-y-12">
+      <!-- Section Header -->
+      <section class="max-w-4xl mx-auto space-y-3">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          Academic Background &amp; Credentials
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Education &amp; Qualifications
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl">
+          Formal academic qualifications, institutional achievements, language competencies, and specialized foundations supporting IT operations and systems engineering.
+        </p>
+      </section>
+
+      <!-- Key Academic Highlights Cards -->
+      <section class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-blue-500/40 hover:-translate-y-0.5 transition duration-300">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg mb-3">
+            &#127891;
+          </div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1">Bachelor's Degree</div>
+          <div class="text-base font-bold text-slate-900 dark:text-white">EQF Level 6</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Tribhuvan University (2018–2024)</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-indigo-500/40 hover:-translate-y-0.5 transition duration-300">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-lg mb-3">
+            &#127963;
+          </div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-1">Higher Secondary</div>
+          <div class="text-base font-bold text-slate-900 dark:text-white">+2 Science</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">EQF Level 2 &bull; Orchid College</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-cyan-500/40 hover:-translate-y-0.5 transition duration-300">
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-lg mb-3">
+            &#128220;
+          </div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 mb-1">Secondary School</div>
+          <div class="text-base font-bold text-slate-900 dark:text-white">SLC Board</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">EQF Level 1 &bull; Arpan English School</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm hover:border-emerald-500/40 hover:-translate-y-0.5 transition duration-300">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg mb-3">
+            &#127760;
+          </div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">Language Level</div>
+          <div class="text-base font-bold text-slate-900 dark:text-white">CEFR C1 / C2</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">English Proficient &bull; Nepali Native</p>
+        </div>
+      </section>
+
+      <!-- Academic Timeline Section -->
+      <section class="max-w-4xl mx-auto space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800/80 pb-3">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-blue-600"></span>
+            Academic Degrees &amp; Formal Education
+          </h3>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20">3 Milestones</span>
+        </div>
+
+        <div class="relative pl-6 md:pl-8 border-l border-slate-300 dark:border-slate-800 space-y-10">
+
+          <!-- 1. Bachelor's Degree - Tribhuvan University -->
+          <div class="relative group">
+            <!-- Timeline Pin Dot -->
+            <div class="absolute -left-[31px] md:-left-[39px] top-2 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-50 dark:border-[#0b0f19] group-hover:scale-125 transition-transform duration-300"></div>
+
+            <div class="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 md:p-8 backdrop-blur shadow-sm hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/5 transition duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 font-semibold uppercase tracking-wider">
+                      EQF Level 6
+                    </span>
+                    <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-semibold">
+                      Completed
+                    </span>
+                  </div>
+                  <h4 class="text-xl font-bold text-slate-900 dark:text-white mt-1.5">
+                    Bachelor's Degree
+                  </h4>
+                  <div class="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                    Tribhuvan University (TU)
+                  </div>
+                </div>
+                <div class="sm:text-right">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    2018 – 2024
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-slate-500 dark:text-slate-400 mb-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  Mahendra Morang Adarsh Multiple Campus
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  Biratnagar, Nepal
+                </span>
+                <a href="https://mmamc.tu.edu.np/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  mmamc.tu.edu.np
+                </a>
+              </div>
+
+              <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                <p>
+                  Rigorous higher degree education providing a comprehensive theoretical and practical foundation in computer systems, network configurations, database management, and diagnostic engineering.
+                </p>
+                <div class="pt-2">
+                  <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Key Areas of Study &amp; Practical Expertise:</div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Computer Architecture</span>
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Operating Systems &amp; Diagnostics</span>
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Networking &amp; Cabling Fundamentals</span>
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Database Management</span>
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">IT Infrastructure &amp; User Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Higher Secondary (+2) - HSEB / Orchid College -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] md:-left-[39px] top-2 w-4 h-4 rounded-full bg-indigo-500 border-4 border-slate-50 dark:border-[#0b0f19] group-hover:scale-125 transition-transform duration-300"></div>
+
+            <div class="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 md:p-8 backdrop-blur shadow-sm hover:border-indigo-500/40 hover:shadow-lg hover:shadow-indigo-500/5 transition duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 font-semibold uppercase tracking-wider">
+                      EQF Level 2
+                    </span>
+                    <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-semibold">
+                      Completed
+                    </span>
+                  </div>
+                  <h4 class="text-xl font-bold text-slate-900 dark:text-white mt-1.5">
+                    Higher Secondary (+2)
+                  </h4>
+                  <div class="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+                    Higher Secondary Education Board (HSEB)
+                  </div>
+                </div>
+                <div class="sm:text-right">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    <svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    16/07/2013 – 08/06/2015
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-slate-500 dark:text-slate-400 mb-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  Orchid Public Higher Secondary School
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  Biratnagar, Nepal
+                </span>
+                <a href="https://orchidcollege.edu.np/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-indigo-600 dark:text-indigo-400 hover:underline">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  orchidcollege.edu.np
+                </a>
+              </div>
+
+              <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                <p>
+                  Science education with strong emphasis on mathematical reasoning, analytical problem-solving, and introductory computing concepts.
+                </p>
+                <div class="pt-2">
+                  <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Disciplines &amp; Coursework:</div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Physical Sciences</span>
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Mathematics &amp; Quantitative Logic</span>
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Computer Principles</span>
+                    <span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">English Language</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. School Leaving Certificate (SLC) - Arpan English School -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] md:-left-[39px] top-2 w-4 h-4 rounded-full bg-cyan-500 border-4 border-slate-50 dark:border-[#0b0f19] group-hover:scale-125 transition-transform duration-300"></div>
+
+            <div class="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 md:p-8 backdrop-blur shadow-sm hover:border-cyan-500/40 hover:shadow-lg hover:shadow-cyan-500/5 transition duration-300">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 font-semibold uppercase tracking-wider">
+                      EQF Level 1
+                    </span>
+                    <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-semibold">
+                      Completed
+                    </span>
+                  </div>
+                  <h4 class="text-xl font-bold text-slate-900 dark:text-white mt-1.5">
+                    School Leaving Certificate (SLC)
+                  </h4>
+                  <div class="text-sm font-semibold text-cyan-600 dark:text-cyan-400">
+                    Government of Nepal Board
+                  </div>
+                </div>
+                <div class="sm:text-right">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    <svg class="w-3.5 h-3.5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    13/04/2000 – 28/03/2013
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-slate-500 dark:text-slate-400 mb-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  Arpan English School
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  Biratnagar, Nepal
+                </span>
+              </div>
+
+              <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                <p>
+                  Foundational academic schooling establishing fluent English communication, scientific inquiry, mathematics, and disciplined teamwork.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Language Proficiencies & CEFR Breakdown -->
+      <section class="max-w-4xl mx-auto space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800/80 pb-3">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+            Language Proficiency &amp; CEFR Standard
+          </h3>
+          <span class="text-xs text-slate-500">Standard European Framework</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Nepali -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white">Nepali</h4>
+                <p class="text-xs text-slate-500">Primary / First Language</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-xs font-semibold">
+                Mother Tongue
+              </span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Full native fluency in verbal communication, written documentation, and institutional collaboration across all administrative levels.
+            </p>
+            <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
+              <div class="bg-emerald-500 h-2 rounded-full w-full"></div>
+            </div>
+          </div>
+
+          <!-- English -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white">English</h4>
+                <p class="text-xs text-slate-500">International Working Language</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-xs font-semibold">
+                Proficient (C1 / C2)
+              </span>
+            </div>
+
+            <!-- CEFR Sub-skills Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 font-mono text-xs">
+              <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800">
+                <span class="text-[10px] uppercase text-slate-400 block font-sans">Listening</span>
+                <span class="font-bold text-blue-600 dark:text-blue-400 text-sm">C2</span>
+                <span class="text-[10px] text-slate-500 block">Mastery</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800">
+                <span class="text-[10px] uppercase text-slate-400 block font-sans">Reading</span>
+                <span class="font-bold text-blue-600 dark:text-blue-400 text-sm">C2</span>
+                <span class="text-[10px] text-slate-500 block">Mastery</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800">
+                <span class="text-[10px] uppercase text-slate-400 block font-sans">Writing</span>
+                <span class="font-bold text-blue-600 dark:text-blue-400 text-sm">C1</span>
+                <span class="text-[10px] text-slate-500 block">Proficient</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800">
+                <span class="text-[10px] uppercase text-slate-400 block font-sans">Spoken Prod.</span>
+                <span class="font-bold text-blue-600 dark:text-blue-400 text-sm">C2</span>
+                <span class="text-[10px] text-slate-500 block">Mastery</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-800">
+                <span class="text-[10px] uppercase text-slate-400 block font-sans">Spoken Inter.</span>
+                <span class="font-bold text-blue-600 dark:text-blue-400 text-sm">B1</span>
+                <span class="text-[10px] text-slate-500 block">Independent</span>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-400 leading-snug">
+              CEFR Scale: Basic (A1/A2), Independent (B1/B2), Proficient (C1/C2).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom CTAs -->
+      <section class="max-w-4xl mx-auto pt-6 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 dark:border-slate-800/80">
+        <button onclick="navigateTo('experience')" class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold hover:border-blue-500 hover:text-blue-600 text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer">
+          &larr; View Work Experience
+        </button>
+        <div class="flex items-center gap-3">
+          <button onclick="openResumeModal()" class="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/30 hover:bg-blue-500 text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Print / Save CV
+          </button>
+          <button onclick="navigateTo('skills')" class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold hover:border-blue-500 hover:text-blue-600 text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer">
+            Explore Skills &rarr;
+          </button>
         </div>
       </section>
     </div>
@@ -612,7 +955,7 @@
 
   <script>
     // SPA Single-Page Router Navigation
-    function navigateTo(pageId) {
+    function navigateTo(pageId, updateHash = true) {
       document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
 
       const targetPage = document.getElementById('page-' + pageId);
@@ -621,16 +964,37 @@
       }
 
       document.querySelectorAll('.nav-link').forEach(link => {
-        link.className = 'nav-link px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors';
+        link.className = 'nav-link px-2.5 sm:px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors';
       });
 
       const activeLink = document.getElementById('nav-' + pageId);
       if (activeLink) {
-        activeLink.className = 'nav-link px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 font-semibold transition-colors';
+        activeLink.className = 'nav-link px-2.5 sm:px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 font-semibold transition-colors';
+      }
+
+      if (updateHash && window.location.hash !== '#' + pageId) {
+        try {
+          window.history.pushState(null, '', '#' + pageId);
+        } catch (e) {}
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Handle deep-linking and browser navigation buttons
+    window.addEventListener('popstate', () => {
+      const page = location.hash.replace('#', '') || 'home';
+      if (['home', 'experience', 'qualification', 'skills', 'contact'].includes(page)) {
+        navigateTo(page, false);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = location.hash.replace('#', '');
+      if (['home', 'experience', 'qualification', 'skills', 'contact'].includes(hash)) {
+        navigateTo(hash, false);
+      }
+    });
 
     // Theme toggle handling
     const html = document.documentElement;
