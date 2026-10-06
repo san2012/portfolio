@@ -311,14 +311,30 @@
         </div>
 
         <div class="md:w-2/5 flex justify-center">
-          <div class="relative group">
+          <div onclick="openProfileModal()" role="button" tabindex="0"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProfileModal();}"
+            aria-label="View full size profile picture"
+            class="relative group cursor-pointer select-none focus:outline-none focus:ring-4 focus:ring-blue-500/50 rounded-2xl transition-transform duration-300 active:scale-95">
             <div
-              class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500">
+              class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-500">
             </div>
             <div
-              class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-900 shadow-xl">
-              <img src="profile.jpg" alt="Santosh Bastola" class="w-full h-full object-cover"
+              class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-900 shadow-xl group-hover:border-blue-500/60 transition-all duration-300">
+              <img src="profile.jpg" alt="Santosh Bastola" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 onerror="this.src='https://via.placeholder.com/300'">
+
+              <!-- Subtle hover/tap hint overlay -->
+              <div
+                class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
+                <div
+                  class="px-3.5 py-1.5 rounded-full bg-slate-900/90 text-white text-xs font-semibold tracking-wide flex items-center gap-1.5 shadow-xl border border-white/20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                  </svg>
+                  <span>Click to view</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1391,10 +1407,19 @@
             <p class="text-sm font-medium text-slate-500 mt-1">Ekta Marga, Budiganga-01, Morang, Nepal, 56613 Biratnagar
             </p>
           </div>
-          <div id="cv-header-photo"
-            class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md flex-shrink-0">
-            <img src="profile.jpg" alt="Santosh Bastola" class="w-full h-full object-cover"
+          <div id="cv-header-photo" onclick="openProfileModal()" role="button" tabindex="0"
+            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProfileModal();}"
+            title="Click to view full photo" aria-label="View full size profile picture"
+            class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md flex-shrink-0 cursor-pointer hover:ring-2 hover:ring-blue-500 hover:border-blue-500 transition group relative">
+            <img src="profile.jpg" alt="Santosh Bastola" class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
               onerror="this.src='https://via.placeholder.com/150'">
+            <div
+              class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-white text-xs font-semibold no-print">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+              </svg>
+            </div>
           </div>
         </div>
 
@@ -1554,6 +1579,51 @@
     </div>
   </div>
 
+  <!-- FULLSCREEN PROFILE PICTURE MODAL -->
+  <div id="profileModal"
+    class="fixed inset-0 z-[60] hidden bg-black/85 backdrop-blur-md overflow-y-auto p-4 sm:p-6 flex justify-center items-center no-print"
+    role="dialog" aria-modal="true" aria-label="Profile picture modal">
+    <div
+      class="relative w-full max-w-lg sm:max-w-xl bg-slate-900 text-white rounded-2xl shadow-2xl overflow-hidden border border-slate-700/80 my-auto transform transition-all duration-300">
+      <!-- Top Action Bar -->
+      <div class="bg-slate-950 px-5 py-3.5 flex justify-between items-center border-b border-slate-800">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+          <span class="font-bold text-sm tracking-wide">Profile Photo</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="profile.jpg" download="Santosh_Bastola_Profile.jpg"
+            class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold tracking-wide flex items-center gap-1.5 transition shadow-sm cursor-pointer text-white">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            Download
+          </a>
+          <button onclick="closeProfileModal()"
+            class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 hover:text-white transition cursor-pointer">
+            Close &#x2715;
+          </button>
+        </div>
+      </div>
+
+      <!-- Image Area -->
+      <div class="p-4 sm:p-6 flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 to-slate-950">
+        <div
+          class="relative w-full max-h-[70vh] flex items-center justify-center overflow-hidden rounded-xl border border-slate-800 bg-slate-950/80 shadow-2xl">
+          <img id="profileModalImg" src="profile.jpg" alt="Santosh Bastola - Profile Photo"
+            class="max-h-[68vh] w-auto max-w-full object-contain rounded-lg transition-transform duration-300 hover:scale-[1.02]"
+            onerror="this.src='https://via.placeholder.com/600?text=Profile+Photo'">
+        </div>
+        <div class="mt-4 text-center">
+          <h3 class="text-base sm:text-lg font-bold text-white tracking-wide">Santosh Bastola</h3>
+          <p class="text-xs sm:text-sm text-blue-400 font-medium">Assistant IT Officer</p>
+          <p class="text-[11px] text-slate-400 mt-1">Ekta Marga, Budiganga-01, Morang, Nepal</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // SPA Single-Page Router Navigation
     function navigateTo(pageId, updateHash = true) {
@@ -1624,12 +1694,58 @@
 
     function closeResumeModal() {
       document.getElementById('resumeModal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
+      // Only restore scroll if profile modal isn't open
+      const profileModal = document.getElementById('profileModal');
+      if (!profileModal || profileModal.classList.contains('hidden')) {
+        document.body.style.overflow = 'auto';
+      }
     }
 
     document.getElementById('resumeModal').addEventListener('click', function (e) {
       if (e.target === this) {
         closeResumeModal();
+      }
+    });
+
+    // Profile Picture Modal Functions
+    function openProfileModal() {
+      const modal = document.getElementById('profileModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeProfileModal() {
+      const modal = document.getElementById('profileModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        // Only restore scroll if resume modal isn't currently open
+        const resumeModal = document.getElementById('resumeModal');
+        if (!resumeModal || resumeModal.classList.contains('hidden')) {
+          document.body.style.overflow = 'auto';
+        }
+      }
+    }
+
+    document.getElementById('profileModal').addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeProfileModal();
+      }
+    });
+
+    // Global ESC key listener to close active modals
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        const profileModal = document.getElementById('profileModal');
+        if (profileModal && !profileModal.classList.contains('hidden')) {
+          closeProfileModal();
+          return;
+        }
+        const resumeModal = document.getElementById('resumeModal');
+        if (resumeModal && !resumeModal.classList.contains('hidden')) {
+          closeResumeModal();
+        }
       }
     });
 
